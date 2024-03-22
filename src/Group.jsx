@@ -25,7 +25,7 @@ import { RxDoubleArrowDown } from "react-icons/rx";
 import energy from "./assets/energy.png";
 import limited from "./assets/limited.png";
 import tree from "./assets/tree.png";
-import { RiMenu3Fill } from "react-icons/ri";
+import { RiArrowDropUpLine, RiMenu3Fill } from "react-icons/ri";
 import { MdOutlineClose } from "react-icons/md";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
@@ -98,7 +98,7 @@ const Group = () => {
 
   return (
     <>
-      <div className="relative  min-h-[85vh] md:h-screen">
+      <div className="relative  min-h-[90vh] md:h-screen">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${imageSlide[currentState].url})` }}
@@ -107,14 +107,23 @@ const Group = () => {
         <div className="absolute inset-0 flex flex-col justify-between">
           <div className="flex flex-col w-full b">
             <div className="flex  justify-between py-2 w-[90%] mx-auto">
-              <img src={logo} width={200} />
+              {/* <img src={logo} width={200} /> */}
+              <h4 className="text-[16px] font-[700]   tracking-[1px]">
+                STABLEARC<span className="text-[#3559C7]">GROUP</span>
+              </h4>
+
               <div className="flex flex-col  ">
                 <div className="hidden  md:flex gap-x-10">
                   <p
                     onClick={() => setDrop(!drop)}
                     className="flex items-center gap-x-2 cursor-pointer hover:text-[#3559C7] font-[600]"
                   >
-                    Services <RiArrowDropDownLine size={22} />
+                    Services{" "}
+                    {drop ? (
+                      <RiArrowDropUpLine size={22} />
+                    ) : (
+                      <RiArrowDropDownLine size={22} />
+                    )}
                   </p>
                   <p
                     onClick={scrollToBusiness}
@@ -188,13 +197,15 @@ const Group = () => {
               </p>
             </div>
           </div>
-          <div className="flex mt-8 px-10 mx-auto flex-col">
-            <img src={logo} />
+          <div className="flex mt-8  mx-auto ">
+            <h1 className="text-[26px] smx:text-[48px] mx-auto text-center md:text-[95px] tracking-[5px]">
+              STABLEARC<span className="text-[#3559C7]">GROUP</span>
+            </h1>
           </div>
           <div className="flex w-full justify-center">
             <div className="flex gap-x-4">
-              <img src={energy} />
-              <img src={limited} />
+              <img src={energy} onContextMenu={(e) => e.preventDefault()} />
+              <img src={limited} onContextMenu={(e) => e.preventDefault()} />
             </div>
           </div>
         </div>
@@ -230,7 +241,7 @@ const Group = () => {
           indicates our <br /> determination to cater to our vision of providing
           basic needs.
         </p>
-        <img src={tree} />
+        <img src={tree} onContextMenu={(e) => e.preventDefault()} />
       </div>
 
       {/* -------------------------------------------------------------- */}
@@ -254,7 +265,11 @@ const Group = () => {
               </p>
             </div>
             <div className="flex justify-center md:justify-end">
-              <img src={pillars} width={450} />
+              <img
+                src={pillars}
+                width={450}
+                onContextMenu={(e) => e.preventDefault()}
+              />
             </div>
           </div>
         </div>
@@ -345,7 +360,11 @@ const Group = () => {
                 <p className="text-[#404040]">info@stratolift.com</p>
               </div>
             </div>
-            <img src={logo} width={200} />
+            <img
+              src={logo}
+              width={200}
+              onContextMenu={(e) => e.preventDefault()}
+            />
           </div>
           <div className="flex space-y-2 flex-col mb-10 md:mb-0">
             <h4 className="font-[500] text-[black]">NEWSLETTER:</h4>
@@ -360,12 +379,36 @@ const Group = () => {
             </div>
             <h4 className="font-[600] text-[black]">SOCIAL:</h4>
             <div className="flex gap-x-4">
-              <img src={insta} className="w-[40px] h-[40px]" />
-              <img src={face} className="w-[40px] h-[40px]" />
-              <img src={tweet} className="w-[40px] h-[40px]" />
-              <img src={link} className="w-[40px] h-[40px]" />
-              <img src={pin} className="w-[40px] h-[40px]" />
-              <img src={youtube} className="w-[40px] h-[40px]" />
+              <img
+                src={insta}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              <img
+                src={face}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              <img
+                src={tweet}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              <img
+                src={link}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              <img
+                src={pin}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              <img
+                src={youtube}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
             </div>
           </div>
         </div>

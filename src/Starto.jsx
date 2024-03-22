@@ -76,7 +76,11 @@ const Starto = () => {
         <div className="absolute inset-0 flex flex-col justify-between">
           <div className="flex flex-col w-full b">
             <div className="flex justify-between py-2 w-[90%] mx-auto">
-              <img src={logo} width={200} />
+              <img
+                src={logo}
+                width={200}
+                onContextMenu={(e) => e.preventDefault()}
+              />
               <div className="hidden md:flex gap-x-10">
                 <p
                   onClick={scrollToServices}
@@ -143,7 +147,7 @@ const Starto = () => {
             </div>
           </div>
           <div className="flex mx-auto flex-col">
-            <img src={logo} />
+            <img src={logo} onContextMenu={(e) => e.preventDefault()} />
             <h4 className="text-center font-[500]">
               RISE HIGH WITH STRATOLIFT
             </h4>
@@ -350,9 +354,9 @@ const Starto = () => {
             and elevator experiences that meet the requirements of evolving
             urban architecture. With over two decades of combined experience
           </p>
-          <p className="ml-auto flex gap-x-2 text-[#E6FF28] items-center">
+          {/* <p className="ml-auto flex gap-x-2 text-[#E6FF28] items-center">
             learn more <FaArrowRightLong />
-          </p>
+          </p> */}
         </div>
       </div>
 
@@ -371,9 +375,9 @@ const Starto = () => {
             and our employees behave and are the principles upon which we base
             our business relationships.
           </p>
-          <p className="ml-auto flex gap-x-2 text-[#EC3237] items-center">
+          {/* <p className="ml-auto flex gap-x-2 text-[#EC3237] items-center">
             learn more <FaArrowRightLong />
-          </p>
+          </p> */}
         </div>
         <div className="flex space-y-14 flex-col">
           <div className="flex rounded-[10px] p-8 flex-col bg-[#EC3237]">
@@ -407,7 +411,11 @@ const Starto = () => {
             <h1>TEAM</h1>
           </div>
           <div className="flex bg-white border-2 py-4 justify-center items-center mt-28">
-            <img src={logo} width={300} />
+            <img
+              src={logo}
+              width={300}
+              onContextMenu={(e) => e.preventDefault()}
+            />
           </div>
         </div>
         <div className="flex md:ml-[-20px] flex-col space-y-6 border-2 p-4 md:px-16  rounded-[10px]">
@@ -453,7 +461,11 @@ const Starto = () => {
                 <p className="text-[#404040]">info@stratolift.com</p>
               </div>
             </div>
-            <img src={logo} width={500} />
+            <img
+              src={logo}
+              width={500}
+              onContextMenu={(e) => e.preventDefault()}
+            />
           </div>
           <div className="flex space-y-2 flex-col mb-10 md:mb-0">
             <h4 className="font-[500] text-[black]">NEWSLETTER:</h4>
@@ -468,12 +480,36 @@ const Starto = () => {
             </div>
             <h4 className="font-[600] text-[black]">SOCIAL:</h4>
             <div className="flex gap-x-4">
-              <img src={insta} className="w-[40px] h-[40px]" />
-              <img src={face} className="w-[40px] h-[40px]" />
-              <img src={tweet} className="w-[40px] h-[40px]" />
-              <img src={link} className="w-[40px] h-[40px]" />
-              <img src={pin} className="w-[40px] h-[40px]" />
-              <img src={youtube} className="w-[40px] h-[40px]" />
+              <img
+                src={insta}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              <img
+                src={face}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              <img
+                src={tweet}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              <img
+                src={link}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              <img
+                src={pin}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              <img
+                src={youtube}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
             </div>
           </div>
         </div>

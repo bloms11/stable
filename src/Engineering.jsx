@@ -77,7 +77,11 @@ const Engineering = () => {
         <div className="absolute inset-0 flex flex-col justify-between">
           <div className="flex flex-col w-full b">
             <div className="flex justify-between items-center py-2 w-[90%] mx-auto">
-              <img src={logo} width={100} />
+              <img
+                src={logo}
+                width={100}
+                onContextMenu={(e) => e.preventDefault()}
+              />
               <div className="hidden md:flex gap-x-10">
                 <p
                   onClick={scrollToServices}
@@ -144,7 +148,11 @@ const Engineering = () => {
             </div>
           </div>
           <div className="flex mx-auto flex-col px-5">
-            <img src={hero} className="mx-auto" />
+            <img
+              src={hero}
+              className="mx-auto"
+              onContextMenu={(e) => e.preventDefault()}
+            />
             <h4 className="text-center font-[500]">
               At StableArc Engineering, we are dedicated to excellence in MEP
               contracting, and we <br /> look forward to the opportunity to
@@ -208,9 +216,9 @@ const Engineering = () => {
               that drive success.{" "}
             </p>
           </div>
-          <p className="ml-auto flex gap-x-2 text-[#3559C7] items-center">
+          {/* <p className="ml-auto flex gap-x-2 text-[#3559C7] items-center">
             learn more <FaArrowRightLong />
-          </p>
+          </p> */}
         </div>
         <div className="flex p-5 flex-col space-y-6 bg-[#3559C7] rounded-[10px]">
           <h1 className="text-[35px]">Mission</h1>
@@ -262,7 +270,11 @@ const Engineering = () => {
                 </p>
               </div>
               <div className="flex items-center mb-6 md:mb-0 p-5 space-y-6 flex-col bg-[#3559C7]">
-                <img src={pipe} className="w-[40px]" />
+                <img
+                  src={pipe}
+                  className="w-[40px]"
+                  onContextMenu={(e) => e.preventDefault()}
+                />
                 <h4 className="text-white">Plumbing</h4>
                 <p className="text-center">
                   Our mechanical engineering team provides comprehensive HVAC,
@@ -403,7 +415,11 @@ const Engineering = () => {
                 <p className="text-[#404040]">info@stratolift.com</p>
               </div>
             </div>
-            <img src={logo} width={200} />
+            <img
+              src={logo}
+              width={200}
+              onContextMenu={(e) => e.preventDefault()}
+            />
           </div>
           <div className="flex space-y-2 flex-col mb-10 md:mb-0">
             <h4 className="font-[500] text-[black]">NEWSLETTER:</h4>
@@ -418,12 +434,36 @@ const Engineering = () => {
             </div>
             <h4 className="font-[600] text-[black]">SOCIAL:</h4>
             <div className="flex gap-x-4">
-              <img src={insta} className="w-[40px] h-[40px]" />
-              <img src={face} className="w-[40px] h-[40px]" />
-              <img src={tweet} className="w-[40px] h-[40px]" />
-              <img src={link} className="w-[40px] h-[40px]" />
-              <img src={pin} className="w-[40px] h-[40px]" />
-              <img src={youtube} className="w-[40px] h-[40px]" />
+              <img
+                src={insta}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              <img
+                src={face}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              <img
+                src={tweet}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              <img
+                src={link}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              <img
+                src={pin}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              <img
+                src={youtube}
+                className="w-[40px] h-[40px]"
+                onContextMenu={(e) => e.preventDefault()}
+              />
             </div>
           </div>
         </div>
