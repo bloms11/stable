@@ -24,6 +24,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { RiMenu3Fill } from "react-icons/ri";
 import { MdOutlineClose } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Engineering = () => {
   const [menu, setMenu] = useState(false);
@@ -68,7 +69,7 @@ const Engineering = () => {
 
   return (
     <>
-      <div className="relative min-h-[85vh] md:h-screen">
+      <div className="relative min-h-[95vh] md:h-screen">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${image})` }}
@@ -127,24 +128,44 @@ const Engineering = () => {
             </div>
             <div
               className={`overflow-hidden flex flex-col space-y-4 ${
-                menu ? "h-[245px] p-3" : "h-[0px] p-0"
+                menu ? "h-[285px] p-3" : "h-[0px] p-0"
               }  bg-white  w-[100%] mt-1`}
             >
-              <p className="cursor-pointer text-[#3559C7] overflow-hidden font-[500]">
+              <p
+                onClick={scrollToServices}
+                className="cursor-pointer text-[#3559C7] overflow-hidden font-[500]"
+              >
                 Services
               </p>
-              <p className="cursor-pointer text-[#3559C7] font-[500] overflow-hidden">
-                Products
+              <p
+                onClick={scrollToCompany}
+                className="cursor-pointer text-[#3559C7] font-[500] overflow-hidden"
+              >
+                Our Company
               </p>
-              <p className="cursor-pointer text-[#3559C7] font-[500] overflow-hidden">
+              <p
+                onClick={scrollToProjects}
+                className="cursor-pointer text-[#3559C7] font-[500] overflow-hidden"
+              >
                 Projects
               </p>
-              <p className="cursor-pointer text-[#3559C7] font-[500] overflow-hidden">
-                Our Team
+              <p
+                onClick={scrollToCertification}
+                className="cursor-pointer text-[#3559C7] font-[500] overflow-hidden"
+              >
+                Certification
               </p>
-              <p className="cursor-pointer text-[#3559C7] font-[500] overflow-hidden">
+              <p
+                onClick={scrollToContact}
+                className="cursor-pointer text-[#3559C7] font-[500] overflow-hidden"
+              >
                 Contact
               </p>
+              <Link to={"/"}>
+                <p className="text-[#3559C7]  cursor-pointer font-[500]">
+                  Stablearc Group
+                </p>
+              </Link>
             </div>
           </div>
           <div className="flex mx-auto flex-col px-5">

@@ -98,15 +98,15 @@ const Group = () => {
 
   return (
     <>
-      <div className="relative  min-h-[90vh] md:h-screen">
+      <div className="relative  min-h-[95vh] md:h-screen">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${imageSlide[currentState].url})` }}
         />
         <div className="absolute inset-0 bg-[black] opacity-70" />
         <div className="absolute inset-0 flex flex-col justify-between">
-          <div className="flex flex-col w-full b">
-            <div className="flex  justify-between py-2 w-[90%] mx-auto">
+          <div className="flex flex-col w-full ">
+            <div className="flex  justify-between py-2 h-[50px] w-[90%] mx-auto">
               {/* <img src={logo} width={200} /> */}
               <h4 className="text-[16px] font-[700]   tracking-[1px]">
                 STABLEARC<span className="text-[#3559C7]">GROUP</span>
@@ -176,13 +176,21 @@ const Group = () => {
               </div>
             </div>
             <div
-              className={`overflow-hidden flex flex-col space-y-4 ${
-                menu ? "h-[245px] p-3" : "h-[0px] p-0"
+              className={`overflow-hidden flex flex-col space-y-3 ${
+                menu ? "h-[345px] p-3" : "h-[0px] p-0"
               }  bg-white  w-[100%] mt-1`}
             >
-              <p className="cursor-pointer text-[#3559C7] overflow-hidden font-[500]">
-                Services
-              </p>
+              <Link to={"stratolift"}>
+                <p className="text-[#3559C7] border-[#afafaf] phover:text-[#3559C7] cursor-pointer font-[500]">
+                  Stratolift
+                </p>
+              </Link>
+              <Link to={"stablearc-engineering"}>
+                <p className="text-[#3559C7] hover:text-[#3559C7] cursor-pointer font-[500]">
+                  Stablearc Engineering
+                </p>
+              </Link>
+
               <p className="cursor-pointer text-[#3559C7] font-[500] overflow-hidden">
                 Products
               </p>
@@ -360,11 +368,9 @@ const Group = () => {
                 <p className="text-[#404040]">info@stratolift.com</p>
               </div>
             </div>
-            <img
-              src={logo}
-              width={200}
-              onContextMenu={(e) => e.preventDefault()}
-            />
+            <h4 className="text-[16px] font-[700]   tracking-[1px]">
+              STABLEARC<span className="text-[#3559C7]">GROUP</span>
+            </h4>
           </div>
           <div className="flex space-y-2 flex-col mb-10 md:mb-0">
             <h4 className="font-[500] text-[black]">NEWSLETTER:</h4>
