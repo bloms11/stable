@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { useState, useRef } from "react";
 import image from "./assets/construction.jpg";
-import hero2 from "./assets/building.jpeg";
+import hero2 from "./assets/building.jpg";
 import hero3 from "./assets/01.jpg";
 import hero4 from "./assets/03.jpg";
 import hero5 from "./assets/04.jpg";
 import hero6 from "./assets/05.jpg";
 import hero7 from "./assets/06.jpg";
+import strato from "./assets/logo.png";
+import groupLogo from "./assets/groupLogo.png";
 import hero8 from "./assets/07.jpg";
 import hero9 from "./assets/08.jpg";
 import hero10 from "./assets/09.jpg";
@@ -105,12 +107,12 @@ const Group = () => {
         />
         <div className="absolute inset-0 bg-[black] opacity-70" />
         <div className="absolute inset-0 flex flex-col justify-between">
-          <div className="flex flex-col w-full ">
-            <div className="flex  justify-between py-2 h-[50px] w-[90%] mx-auto">
-              {/* <img src={logo} width={200} /> */}
-              <h4 className="text-[16px] font-[700]   tracking-[1px]">
+          <div className="flex flex-col w-full py-2 ">
+            <div className="flex  justify-between py-2 h-[60px] w-[90%] mx-auto">
+              <img src={groupLogo} className="w-[140px] h-[60px]" />
+              {/* <h4 className="text-[16px] font-[700]   tracking-[1px]">
                 STABLEARC<span className="text-[#3559C7]">GROUP</span>
-              </h4>
+              </h4> */}
 
               <div className="flex flex-col  ">
                 <div className="hidden  md:flex gap-x-10">
@@ -129,7 +131,7 @@ const Group = () => {
                     onClick={scrollToBusiness}
                     className="cursor-pointer hover:text-[#3559C7] font-[600]"
                   >
-                    Products
+                    Businesses
                   </p>
                   {/* <p className="cursor-pointer hover:text-[#3559C7] font-[600]">
                     Projects
@@ -192,7 +194,7 @@ const Group = () => {
               </Link>
 
               <p className="cursor-pointer text-[#3559C7] font-[500] overflow-hidden">
-                Products
+                Businesses
               </p>
               <p className="cursor-pointer text-[#3559C7] font-[500] overflow-hidden">
                 Projects
@@ -211,8 +213,14 @@ const Group = () => {
             </h1>
           </div>
           <div className="flex w-full justify-center">
-            <div className="flex gap-x-4">
+            <div className="flex items-center gap-x-4">
               <img src={energy} onContextMenu={(e) => e.preventDefault()} />
+              <img
+                src={strato}
+                className="w-[250px] h-[35px] "
+                onContextMenu={(e) => e.preventDefault()}
+              />
+
               <img src={limited} onContextMenu={(e) => e.preventDefault()} />
             </div>
           </div>

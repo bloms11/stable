@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
 import { useState } from "react";
 import "./App.css";
-import image from "./assets/building.jpeg";
+import image from "./assets/building.jpg";
 import logo from "./assets/logo.png";
-import gold from "./assets/gold.jpeg";
-import platinum from "./assets/platinum.jpeg";
+import gold from "./assets/gold.jpg";
+import platinum from "./assets/platinum.jpg";
 import worker from "./assets/worker.jpeg";
-import diamond from "./assets/diamond.jpeg";
+import diamond from "./assets/diamond.jpg";
 import worker2 from "./assets/worker2.jpeg";
-import man from "./assets/man.jpeg";
+import man from "./assets/03.jpg";
 import insta from "./assets/insta.png";
 import face from "./assets/face.png";
 import tweet from "./assets/tweet.png";
@@ -222,7 +222,7 @@ const Starto = () => {
 
       {/* ------------------------------------------- */}
 
-      <div
+      {/* <div
         ref={projectsRef}
         className="flex-col flex md:flex-row justify-between items-center w-[90%] md:w-[70%] mx-auto mt-[5%]"
       >
@@ -277,7 +277,7 @@ const Starto = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* -------------------------------- */}
 
@@ -309,29 +309,45 @@ const Starto = () => {
       >
         <h1 className="text-[#EC3237] mx-auto">Our Products</h1>
         <div className="grid w-full md:w-[60%] mx-auto mt-[4%] grid-cols-1 smx:grid-cols-2 gap-x-10">
-          <div className="relative h-[300px] rounded-[8px] mb-10">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${gold})` }}
-            />
+          <Link
+            to={
+              "https://drive.google.com/file/d/1_X2JjAhaBEXIFmFJj0E5l4FnEucFmoCR/view?usp=sharing"
+            }
+          >
+            <div className="relative h-[300px] rounded-[8px] mb-10">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${gold})` }}
+              />
 
-            <div className="absolute inset-0 bg-[black] opacity-50"></div>
-            <div className="absolute inset-0 ml-10 flex flex-col justify-center">
-              <h4 className="text-[white] px-2 border-l-4">Strato Gold</h4>
+              <div className="absolute inset-0 bg-[black] opacity-50"></div>
+              <div className="absolute inset-0 ml-10 flex flex-col justify-center">
+                <h4 className="text-[white] px-2 border-l-4">
+                  StratoLift Altura Gold
+                </h4>
+              </div>
             </div>
-          </div>
-          <div className="relative h-[300px] rounded-[8px] mb-10">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${platinum})` }}
-            />
+          </Link>
+          <Link
+            to={
+              "https://drive.google.com/file/d/1_cs7-C3FE3pVydWCWFFHZ452pzT0gw3F/view?usp=sharing"
+            }
+          >
+            <div className="relative h-[300px] rounded-[8px] mb-10">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${platinum})` }}
+              />
 
-            <div className="absolute inset-0 bg-[black] opacity-50"></div>
-            <div className="absolute inset-0 ml-10 flex flex-col justify-center">
-              <h4 className="text-[white] px-2 border-l-4">Strato Platinum</h4>
+              <div className="absolute inset-0 bg-[black] opacity-50"></div>
+              <div className="absolute inset-0 ml-10 flex flex-col justify-center">
+                <h4 className="text-[white] px-2 border-l-4">
+                  StratoLift Altura Platinum
+                </h4>
+              </div>
             </div>
-          </div>
-          <div className="relative h-[300px] rounded-[8px] mb-10">
+          </Link>
+          {/* <div className="relative h-[300px] rounded-[8px] mb-10">
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${diamond})` }}
@@ -341,8 +357,8 @@ const Starto = () => {
             <div className="absolute inset-0 ml-10 flex flex-col justify-center">
               <h4 className="text-[white] px-2 border-l-4">Strato Diamond</h4>
             </div>
-          </div>
-          <div className="relative h-[300px] rounded-[8px] mb-10">
+          </div> */}
+          {/* <div className="relative h-[300px] rounded-[8px] mb-10">
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${worker})` }}
@@ -352,7 +368,7 @@ const Starto = () => {
             <div className="absolute inset-0 ml-10 flex flex-col justify-center">
               <h4 className="text-[white] px-2 border-l-4">Strato Executive</h4>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -441,12 +457,12 @@ const Starto = () => {
         </div>
         <div className="flex md:ml-[-20px] flex-col space-y-6 border-2 p-4 md:px-16  rounded-[10px]">
           <h4 className="mx-auto font-[600] text-[#EC3237]">Management</h4>
-          <div className="flex space-y-2 flex-col">
+          {/* <div className="flex space-y-2 flex-col">
             <h4 className="text-[#303030] font-[600]">
               Engr. Henrich Bankole Akomolafe
             </h4>
             <p className="text-[grey]">Founder/ Chief Executive Officer</p>
-          </div>
+          </div> */}
           <div className="flex space-y-2 flex-col">
             <h4 className="text-[#303030] font-[600]">
               Samuel Ebiminiwei Abise

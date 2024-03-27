@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useState } from "react";
 import "./App.css";
-import image from "./assets/engine.jpeg";
+import image from "./assets/engine.jpg";
 import logo from "./assets/logo3.png";
 import hero from "./assets/hero.png";
 import out from "./assets/out.png";
