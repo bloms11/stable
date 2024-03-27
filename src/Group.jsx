@@ -109,7 +109,11 @@ const Group = () => {
         <div className="absolute inset-0 flex flex-col justify-between">
           <div className="flex flex-col overflow-hidden w-full py-2 ">
             <div className="flex  justify-between py-2 overflow-hidden h-[60px] w-[90%] mx-auto">
-              <img src={groupLogo} className="w-[140px] h-[60px]" />
+              <img
+                src={groupLogo}
+                onContextMenu={(e) => e.preventDefault()}
+                className="w-[140px] h-[60px]"
+              />
               {/* <h4 className="text-[16px] font-[700]   tracking-[1px]">
                 STABLEARC<span className="text-[#3559C7]">GROUP</span>
               </h4> */}
