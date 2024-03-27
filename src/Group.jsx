@@ -124,7 +124,7 @@ const Group = () => {
                     onClick={() => setDrop(!drop)}
                     className="flex items-center gap-x-2 cursor-pointer hover:text-[#3559C7] font-[600]"
                   >
-                    Subsidiaries{" "}
+                    Our Subsidiaries{" "}
                     {drop ? (
                       <RiArrowDropUpLine size={22} />
                     ) : (
@@ -150,7 +150,7 @@ const Group = () => {
                     onClick={scrollToContact}
                     className="cursor-pointer hover:text-[#3559C7] font-[600]"
                   >
-                    Contact
+                    Contact Us
                   </p>
                 </div>
                 <div
@@ -207,15 +207,15 @@ const Group = () => {
                 Our Team
               </p>
               <p className="cursor-pointer text-[#3559C7] font-[500] overflow-hidden">
-                Contact
+                Contact Us
               </p>
             </div>
           </div>
-          <div className="flex mt-8  mx-auto ">
+          {/* <div className="flex mt-8  mx-auto ">
             <h1 className="text-[26px] smx:text-[48px] mx-auto text-center md:text-[95px] tracking-[5px]">
               STABLEARC<span className="text-[#3559C7]">GROUP</span>
             </h1>
-          </div>
+          </div> */}
           <div className="flex w-full justify-center">
             <div className="flex items-center gap-x-4">
               <img src={energy} onContextMenu={(e) => e.preventDefault()} />

@@ -112,7 +112,7 @@ const Engineering = () => {
                   onClick={scrollToContact}
                   className="cursor-pointer hover:text-[#3559C7] font-[600]"
                 >
-                  Contact
+                  Contact Us
                 </p>
               </div>
               <div
@@ -159,7 +159,7 @@ const Engineering = () => {
                 onClick={scrollToContact}
                 className="cursor-pointer text-[#3559C7] font-[500] overflow-hidden"
               >
-                Contact
+                Contact Us
               </p>
               <Link to={"/"}>
                 <p className="text-[#3559C7]  cursor-pointer font-[500]">

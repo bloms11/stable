@@ -111,7 +111,7 @@ const Starto = () => {
                   onClick={scrollToContact}
                   className="cursor-pointer hover:text-[#EC3237] font-[600]"
                 >
-                  Contact
+                  Contact Us
                 </p>
               </div>
               <div
@@ -158,7 +158,7 @@ const Starto = () => {
                 onClick={scrollToContact}
                 className="cursor-pointer text-[#EC3237] font-[500] overflow-hidden"
               >
-                Contact
+                Contact Us
               </p>
               <Link to={"/"}>
                 <p className="text-[#EC3237]  cursor-pointer font-[500]">
