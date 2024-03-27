@@ -41,7 +41,7 @@ const Group = () => {
       } else {
         setCurrentState(currentState + 1);
       }
-    }, 3000);
+    }, 5000);
     return () => clearTimeout(timer);
   }, [currentState]);
 
