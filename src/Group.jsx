@@ -118,7 +118,7 @@ const Group = () => {
                     onClick={() => setDrop(!drop)}
                     className="flex items-center gap-x-2 cursor-pointer hover:text-[#3559C7] font-[600]"
                   >
-                    Services{" "}
+                    Subsidiaries{" "}
                     {drop ? (
                       <RiArrowDropUpLine size={22} />
                     ) : (

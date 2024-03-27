@@ -236,7 +236,7 @@ const Starto = () => {
 
             <div className="absolute inset-0 bg-[black] opacity-50"></div>
             <div className="absolute inset-0 flex flex-col justify-center items-center">
-              <h4 className="text-[white]">Altura Gold</h4>
+              <h4 className="text-[white]">Strato Gold</h4>
               <div className="flex bg-[white] h-[2px] w-[50px]"></div>
             </div>
           </div>
@@ -248,7 +248,7 @@ const Starto = () => {
 
             <div className="absolute inset-0 bg-[black] opacity-50"></div>
             <div className="absolute inset-0 flex flex-col justify-center items-center">
-              <h4 className="text-[white]">Altura Platinum</h4>
+              <h4 className="text-[white]">Strato Silver</h4>
               <div className="flex bg-[white] h-[2px] w-[50px]"></div>
             </div>
           </div>

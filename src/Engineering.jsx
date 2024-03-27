@@ -169,11 +169,9 @@ const Engineering = () => {
             </div>
           </div>
           <div className="flex mx-auto flex-col px-5">
-            <img
-              src={hero}
-              className="mx-auto"
-              onContextMenu={(e) => e.preventDefault()}
-            />
+            <h1 className="text-[26px] smx:text-[48px] mx-auto text-center md:text-[95px] tracking-[5px]">
+              STABLEARC<span className="text-[#3559C7]">ENGINEERING</span>
+            </h1>
             <h4 className="text-center font-[500]">
               At StableArc Engineering, we are dedicated to excellence in MEP
               contracting, and we <br /> look forward to the opportunity to
