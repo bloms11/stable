@@ -429,8 +429,6 @@ const Engineering = () => {
             <div className="flex items-center gap-x-4">
               <h4 className="font-[600] text-black">Email us:</h4>
               <div className="flex flex-col">
-                <p className="text-[#404040]">sales@stratolift.com</p>
-                <p className="text-[#404040]">customercare@stratolift.com</p>
                 <p className="text-[#404040]">info@stratolift.com</p>
               </div>
             </div>

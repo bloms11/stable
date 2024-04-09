@@ -375,8 +375,6 @@ const Group = () => {
             <div className="flex items-center gap-x-4">
               <h4 className="font-[600] text-black">Email us:</h4>
               <div className="flex flex-col">
-                <p className="text-[#404040]">sales@stratolift.com</p>
-                <p className="text-[#404040]">customercare@stratolift.com</p>
                 <p className="text-[#404040]">info@stratolift.com</p>
               </div>
             </div>
@@ -432,7 +430,7 @@ const Group = () => {
         </div>
       </div>
       <div className="flex bg-[#3559C7] p-4">
-        <p className="font-[500]">STRATOLIFT © 2024. All Rights Reserved</p>
+        <p className="font-[500]">STABLEARCGROUP © 2024. All Rights Reserved</p>
       </div>
     </>
   );

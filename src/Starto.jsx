@@ -288,16 +288,13 @@ const Starto = () => {
         />
 
         <div className="absolute inset-0 bg-[black] opacity-50"></div>
-        <div className="absolute inset-0 flex justify-between items-center px-4 smd:px-20">
+        <div className="absolute inset-0 flex justify-center items-center px-4 smd:px-20">
           <div className="flex space-y-4 flex-col">
             <h4 className="text-[white] font-[600]">
               Book technical consultation
             </h4>
             <p>Send us an email: info@stratolift.com</p>
           </div>
-          <button className="border-white p-3 px-5 text-[13px] font-[600] border-2 rounded-[4px]">
-            Get Quotation
-          </button>
         </div>
       </div>
 
@@ -442,12 +439,12 @@ const Starto = () => {
         ref={teamRef}
         className="grid grid-cols-1 md:grid-cols-2 mt-[5%] mx-auto w-[90%] md:w-[70%]"
       >
-        <div className="flex  flex-col bg-[#EC3237] z-10 shadow-xl rounded-[10px]">
+        <div className="flex  flex-col bg-[#EC3237] z-10 shadow-xl pb-20 rounded-[10px]">
           <div className="flex flex-col mt-6 p-8">
             <h4>OUR</h4>
             <h1>TEAM</h1>
           </div>
-          <div className="flex bg-white border-2 py-4 justify-center items-center mt-28">
+          <div className="flex bg-white border-2 py-4 justify-center items-center mt-8">
             <img
               src={logo}
               width={300}
@@ -455,30 +452,19 @@ const Starto = () => {
             />
           </div>
         </div>
-        <div className="flex md:ml-[-20px] flex-col space-y-6 border-2 p-4 md:px-16  rounded-[10px]">
-          <h4 className="mx-auto font-[600] text-[#EC3237]">Management</h4>
-          {/* <div className="flex space-y-2 flex-col">
-            <h4 className="text-[#303030] font-[600]">
-              Engr. Henrich Bankole Akomolafe
-            </h4>
-            <p className="text-[grey]">Founder/ Chief Executive Officer</p>
-          </div> */}
-          <div className="flex space-y-2 flex-col">
-            <h4 className="text-[#303030] font-[600]">
-              Samuel Ebiminiwei Abise
-            </h4>
-            <p className="text-[grey]">
-              Business Development officer & Head of Marketing and Communication
-            </p>
-          </div>
-          <div className="flex space-y-2 flex-col">
-            <h4 className="text-[#303030] font-[600]">Tunde Adejumo</h4>
-            <p className="text-[grey]">Company Secretary and Head of Legal</p>
-          </div>
-          <h4 className="text-[#303030] font-[600]">Chief Financial Officer</h4>
-          <h4 className="text-[#303030] font-[600]">Head of Sales</h4>
-          <h4 className="text-[#303030] font-[600]">Human Resource Officier</h4>
-          <h4 className="text-[#303030] font-[600]">Board of Directors</h4>
+        <div className="flex md:ml-[-20px] flex-col space-y-6 border-2 p-4 md:px-16 justify-center  rounded-[10px]">
+          <h4 className="text-[#404040] leading-[35px]">
+            Our dedicated team consists of industry-trained professionals with a
+            wealth of expertise totaling 35 years in elevator installation,
+            maintenance, and consultation services. With a deep-rooted
+            commitment to excellence, we bring unparalleled knowledge and
+            proficiency to every project we undertake. From seamless
+            installation to meticulous maintenance and insightful consultation,
+            we are your trusted partners in vertical transportation solutions.
+            Let us elevate your expectations and exceed your every requirement
+            with our unparalleled experience and dedication to quality
+            craftsmanship.
+          </h4>
         </div>
       </div>
 
@@ -493,8 +479,6 @@ const Starto = () => {
             <div className="flex items-center gap-x-4">
               <h4 className="font-[600] text-black">Email us:</h4>
               <div className="flex flex-col">
-                <p className="text-[#404040]">sales@stratolift.com</p>
-                <p className="text-[#404040]">customercare@stratolift.com</p>
                 <p className="text-[#404040]">info@stratolift.com</p>
               </div>
             </div>
