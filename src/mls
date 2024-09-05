@@ -1,0 +1,1081 @@
+import { useState } from "react";
+import { FaChevronDown, FaRegCircleUser } from "react-icons/fa6";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { findCases } from "../../services/caseService";
+import { FaAngleDown, FaRegMoon } from "react-icons/fa";
+import { BsSearch } from "react-icons/bs";
+import {
+  Box,
+  Button,
+  Flex,
+  Icon,
+  Input,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuItem,
+  MenuList,
+} from "@chakra-ui/react";
+import { FaUserCircle } from "react-icons/fa";
+import {
+  MdFullscreen,
+  MdOutlineLogout,
+  MdOutlineWbSunny,
+} from "react-icons/md";
+import GoogleTranslate from "../GoogleTranslate";
+import { updateMode } from "../../redux/slices/authSlice";
+
+const Header = ({ toggleFullScreen, toggleSidebar }) => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth?.user);
+  const darkMode = useSelector((state) => state.auth?.darkMode);
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResult, setSearchResult] = useState("");
+
+  const searchCases = async (searchText) => {
+    setSearchResult("");
+    if (searchText) {
+      setSearchTerm(searchText);
+      const res = await findCases(searchText);
+      setSearchResult(res);
+    }
+  };
+
+  return (
+    <Box className="app-header" backgroundColor={"brand.bgColor"}>
+      <div className="main-header-container container-fluid">
+        <div className="d-none d-lg-block ms-lg-3 ps-lg-1">
+          <img
+            src="../assets/images/menu_bar/MyLS-logo.svg"
+            className="light-logo"
+            alt="Gehi Logo"
+          />
+          <img
+            src="../assets/images/menu_bar/MyLs-logo-dark.svg"
+            className="dark-logo"
+            alt="dark-logo"
+          />
+        </div>
+
+        <div className="header-content-left">
+          <div className="header-element">
+            <div className="horizontal-logo d-none ">
+              <a href="dashboard.html" className="header-logo">
+                <img
+                  src="../assets/images/menu_bar/logo.svg"
+                  alt="logo"
+                  className="desktop-logo"
+                />
+                <img
+                  src="../assets/images/menu_bar/logo.svg"
+                  alt="logo"
+                  className="toggle-logo w-25"
+                />
+                <img
+                  src="../assets/images/menu_bar/logo.svg"
+                  alt="logo"
+                  className="desktop-dark"
+                />
+                <img
+                  src="../assets/images/brand-logos/toggle-dark.png"
+                  alt="logo"
+                  className="toggle-dark"
+                />
+                <img
+                  src="../assets/images/brand-logos/desktop-white.png"
+                  alt="logo"
+                  className="desktop-white"
+                />
+                <img
+                  src="../assets/images/brand-logos/toggle-white.png"
+                  alt="logo"
+                  className="toggle-white"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div className="header-element d-lg-none" onClick={toggleSidebar}>
+            <a
+              aria-label="Hide Sidebar"
+              className="sidemenu-toggle header-link animated-arrow hor-toggle horizontal-navtoggle"
+            >
+              <span />
+              <div className="arrow-icon-open" />
+            </a>
+          </div>
+        </div>
+
+        <div
+          style={{
+            // width: "600px",
+            display: "flex",
+            justifyContent: "space-between",
+            marginLeft: "10px",
+          }}
+          className="header-content-right gap-4 "
+        >
+          <div className="header-element header-search d-none d-md-block">
+            <div className="search-width  pt-10 position-relative d-flex">
+              {/* <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  width: "400px",
+                  height: "35px",
+                  padding: " 0.2rem",
+                  borderColor: "#7e3eff",
+                }}
+                className="dropdown text-end search-form-control border-primary border-radious-30"
+              >
+                <div
+                  style={{ borderColor: "#7e3eff" }}
+                  className="dropdown text-end btn-search-position  pr-2"
+                >
+                  <div
+                    className="btn-search  d-flex justify-content-between   align-items-center"
+                    style={{
+                      margin: "3px 0 0 5px",
+                    }}
+                    data-bs-toggle="dropdown"
+                  >
+                    <span
+                      className="text-primary"
+                      style={{ marginRight: "5px" }}
+                    >
+                      {" "}
+                      Cases{" "}
+                    </span>{" "}
+                    <FaAngleDown color="#7e3eff" />{" "}
+                  </div>
+
+                  <ul
+                    className="dropdown-menu mt-3 text-black btn-search-dropdown"
+                    style={{ width: "100% !important" }}
+                  >
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="javascript:void(0);"
+                        // onclick="goToAdvancedSearch()"
+                      >
+                        <span>All</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="javascript:void(0);"
+                        // onclick="goToAdvancedSearch('documents')"
+                      >
+                        <span>Documents</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="javascript:void(0);"
+                        // onclick="goToAdvancedSearch('templates')"
+                      >
+                        <span>Templates</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="javascript:void(0);"
+                        // onclick="goToAdvancedSearch('mail')"
+                      >
+                        <span>Mails</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="javascript:void(0);"
+                        // onclick="goToAdvancedSearch('casenote')"
+                      >
+                        <span>Case Notes</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="javascript:void(0);"
+                        // onclick="goToAdvancedSearch('case')"
+                      >
+                        <span>Cases</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <input
+                  type="search"
+                  className="  px-2 "
+                  onChange={(e) => searchCases(e.target.value)}
+                  placeholder="Search here... "
+                  aria-label="search"
+                  style={{
+                    display: "inline-block",
+                    width: "70%",
+                    border: "none",
+                    background: "transparent",
+                    outline: "none",
+                  }}
+                />
+                {searchResult && (
+                  <div
+                    className="dropdown-menu w-100 p-3 "
+                    style={{
+                      boxShadow: "0px 1px 1.5px 1px rgba(0, 0, 0, 0.2)",
+                      display: "block",
+                      marginTop: 35,
+                    }}
+                  >
+                    <p className="pb-2 mb-0 fs-18 fw-semibold">
+                      {searchResult?.data?.length > 0
+                        ? `Results for ${searchTerm}: `
+                        : `No result found for ${searchTerm}`}
+                    </p>
+
+                    {searchResult?.data?.length > 0 && (
+                      <>
+                        {searchResult?.data?.map((result) => (
+                          <div
+                            className="p-2 border-top-dark cursor-pointer"
+                            onClick={() => {
+                              setSearchTerm("");
+                              setSearchResult("");
+                              navigate(`/case/${result?.id}`);
+                            }}
+                          >
+                            <p className="mb-0 fs-6 fw-semibold ">
+                              Case Number # {result?.id}
+                            </p>
+                            <p className="my-2">
+                              <span>Attorney:</span>{" "}
+                              <span>{result?.leadAttorney} | </span>
+                              <span>Paralegal:</span>{" "}
+                              <span>{result?.leadAttorney} | </span>
+                              <span>Created By:</span>{" "}
+                              <span>{result?.createdBy} | </span>
+                            </p>
+                          </div>
+                        ))}
+                      </>
+                    )}
+                  </div>
+                )}
+
+                <a
+                  href="javascript:void(0);"
+                  className=" header-search-icone pb-0 bg-primary-gradient "
+                  // onclick="goToAdvancedSearch()"
+                  style={{
+                    height: "100%",
+                    width: "50px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: "0px 30px 30px 0px",
+                    cursor: "pointer",
+                  }}
+                >
+                  <iconify-icon
+                    icon="material-symbols:search"
+                    className="fs-10 py-1 text-fixed-white  px-3"
+                    style={{ fontSize: "20px" }}
+                  />
+                </a>
+              </div> */}
+              <div
+                style={{
+                  width: "400px",
+                }}
+                className="d-flex border-2 bg-fixed-prime border-primary rounded-pill"
+              >
+                <div className="d-flex h-100 p-2 gap-1 align-items-center">
+                  <div className="ps-2 text-primary">Cases</div>
+                  <FaAngleDown className="text-primary" />
+                </div>
+                {/* {searchResult && (
+                  <div
+                    className="dropdown-menu w-100 p-3 "
+                    style={{
+                      boxShadow: "0px 1px 1.5px 1px rgba(0, 0, 0, 0.2)",
+                      display: "block",
+                      marginTop: 40,
+                    }}
+                  >
+                    <p className="pb-2 mb-0 fs-18 fw-semibold">
+                      {searchResult?.data?.length > 0
+                        ? `Results for ${searchTerm}: `
+                        : `No result found for ${searchTerm}`}
+                    </p>
+
+                    {searchResult?.data?.length > 0 && (
+                      <>
+                        {searchResult?.data?.map((result) => (
+                          <div
+                            className="p-2 border-top-dark cursor-pointer"
+                            onClick={() => {
+                              setSearchTerm("");
+                              setSearchResult("");
+                              navigate(`/case/${result?.id}`);
+                            }}
+                          >
+                            <p className="mb-0 fs-6 fw-semibold ">
+                              Case Number # {result?.id}
+                            </p>
+                            <p className="my-2">
+                              <span>Attorney:</span>{" "}
+                              <span>{result?.leadAttorney} | </span>
+                              <span>Paralegal:</span>{" "}
+                              <span>{result?.leadAttorney} | </span>
+                              <span>Created By:</span>{" "}
+                              <span>{result?.createdBy} | </span>
+                            </p>
+                          </div>
+                        ))}
+                      </>
+                    )}
+                  </div>
+                )} */}
+
+                <div className="border border-end border-primary"></div>
+                <input
+                  type="search"
+                  className="  px-2 "
+                  onChange={(e) => searchCases(e.target.value)}
+                  placeholder="Search here... "
+                  aria-label="search"
+                  style={{
+                    display: "inline-block",
+                    width: "90%",
+                    border: "none",
+                    background: "transparent",
+                    outline: "none",
+                  }}
+                />
+                {searchResult && (
+                  <div
+                    className="dropdown-menu w-100 p-3 "
+                    style={{
+                      boxShadow: "0px 1px 1.5px 1px rgba(0, 0, 0, 0.2)",
+                      display: "block",
+                      marginTop: 40,
+                    }}
+                  >
+                    <p className="pb-2 mb-0 fs-18 fw-semibold">
+                      {searchResult?.data?.length > 0
+                        ? `Results for ${searchTerm}: `
+                        : `No result found for ${searchTerm}`}
+                    </p>
+
+                    {searchResult?.data?.length > 0 && (
+                      <>
+                        {searchResult?.data?.map((result) => (
+                          <div
+                            className="p-2 border-top-dark cursor-pointer"
+                            onClick={() => {
+                              setSearchTerm("");
+                              setSearchResult("");
+                              navigate(`/case/${result?.id}`);
+                            }}
+                          >
+                            <p className="mb-0 fs-6 fw-semibold ">
+                              Case Number # {result?.id}
+                            </p>
+                            <p className="my-2">
+                              <span>Attorney:</span>{" "}
+                              <span>{result?.leadAttorney} | </span>
+                              <span>Paralegal:</span>{" "}
+                              <span>{result?.leadAttorney} | </span>
+                              <span>Created By:</span>{" "}
+                              <span>{result?.createdBy} | </span>
+                            </p>
+                          </div>
+                        ))}
+                      </>
+                    )}
+                  </div>
+                )}
+                <div className="d-flex p-1 px-1 align-items-center">
+                  <div className="d-flex rounded-pill px-4 py-2 bg-primary">
+                    <BsSearch size={12} color="white" />
+                  </div>
+                </div>
+              </div>
+
+              {/* <select
+                name="languages"
+                id="languages"
+                onChange={handleLanguageChange}
+                style={{
+                  marginLeft: "20px",
+                  borderRadius: "8px",
+                  background: "gray",
+                  padding: "6px",
+                  color: "white",
+                }}
+              >
+                <option value="select">Select language</option>
+                {languages.map((language) => (
+                  <option
+                    key={language.value}
+                    value={language.value}
+                    style={{ padding: "3px 0" }}
+                  >
+                    {language.label}
+                  </option>
+                ))}
+              </select> */}
+            </div>
+          </div>
+          <div className="d-flex gap-2 ">
+            <Icon
+              as={darkMode ? MdOutlineWbSunny : FaRegMoon}
+              boxSize={6}
+              marginTop={18}
+              color={"brand.textColor"}
+              onClick={() => dispatch(updateMode())}
+            />
+
+            <Icon
+              as={MdFullscreen}
+              boxSize={7}
+              marginTop={15}
+              color={"brand.textColor"}
+              onClick={toggleFullScreen}
+            />
+          </div>
+          <GoogleTranslate />
+
+          <div className="header-element header-shortcuts-dropdown">
+            {/* Start::main-header-dropdown */}
+
+            <div className="header-element">
+              <Menu>
+                <MenuButton
+                  as={Button}
+                  bg="none"
+                  _hover={{ bg: "none" }}
+                  _active={{ bg: "none" }}
+                  border="none"
+                  p={0}
+                  w="100%"
+                  textAlign="left"
+                  color="inherit"
+                >
+                  <div className="d-flex mt-3 align-items-center">
+                    <div className="me-sm-2 me-0">
+                      <FaRegCircleUser size={25} />
+                    </div>
+                    <div className="d-lg-block d-none">
+                      <p className="fs-12 mb-0 lh-1 d-flex fw-medium text-capitalize">
+                        {user?.username}
+                        <FaChevronDown
+                          size={10}
+                          style={{ padding: 0, margin: 0, marginLeft: "5px" }}
+                        />
+                      </p>
+                      <span className="op-7 fw-normal d-block fs-10 mt-1">
+                        {user?.roles[0] === "ROLE_SUPER_ADMIN"
+                          ? "Super Admin"
+                          : user?.roles[0]}
+                      </span>
+                    </div>
+                  </div>
+                </MenuButton>
+                <MenuList position={"relative"} zIndex={200} minW={"10rem"}>
+                  <MenuItem>
+                    <Flex gap={2} alignItems={"center"}>
+                      <Flex fontWeight={"bold"}>
+                        <FaUserCircle style={{ marginRight: 10 }} /> Profile
+                      </Flex>
+                    </Flex>
+                  </MenuItem>
+                  <MenuDivider />
+                  <MenuItem onClick={() => navigate("/logout")}>
+                    <Flex gap={2} alignItems={"center"}>
+                      <Flex fontWeight={"bold"} color={"red"}>
+                        <MdOutlineLogout style={{ marginRight: 10 }} />
+                        Logout
+                      </Flex>
+                    </Flex>
+                  </MenuItem>
+                </MenuList>
+              </Menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Box>
+  );
+};
+
+export default Header;
+
+
+
+
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { getUsers } from "../../services/userService";
+
+const initialState = {
+  params: {
+    size: 10,
+    page: 0,
+  },
+  users: [],
+  userList: [],
+  loading: false,
+  error: "",
+  totalPages: null,
+  page: null,
+};
+
+export const fetchUsers = createAsyncThunk("users/fetch", async () => {
+  return getUsers();
+});
+
+export const fetchUserList = createAsyncThunk(
+  "userList/fetch",
+  async (_, { getState }) => {
+    return getUsers(getState()?.users?.params);
+  }
+);
+
+const userSlice = createSlice({
+  name: "user",
+  initialState,
+  reducers: {
+    updateUserPagination: (state, { payload }) => {
+      state.params.page = payload;
+      state.users = null;
+    },
+  },
+
+  extraReducers: (builder) => {
+    builder.addCase(fetchUsers.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchUsers.fulfilled, (state, { payload }) => {
+      state.loading = false;
+      state.users = payload;
+      state.totalPages = payload?.data?.totalPages;
+      state.page = payload?.data?.currentPage;
+    });
+    builder.addCase(fetchUsers.rejected, (state) => {
+      state.loading = false;
+      state.error = "Error, Failed to load users";
+    });
+    //fetch user list
+    builder.addCase(fetchUserList.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchUserList.fulfilled, (state, { payload }) => {
+      state.loading = false;
+      state.userList = payload?.data?.responses;
+      console.log(payload);
+      state.totalPages = payload?.data?.totalPages;
+      state.page = payload?.data?.currentPage;
+    });
+    builder.addCase(fetchUserList.rejected, (state) => {
+      state.loading = false;
+      state.error = "Error, Failed to load users";
+    });
+  },
+});
+
+export default userSlice.reducer;
+export const { updateUserPagination } = userSlice.actions;
+
+
+import { BASE_URL } from "../config/settings";
+import { objToParams } from "../utils/func";
+import httpRequest from "../utils/httpRequest";
+
+export const getUsers = async (params) => {
+  const url = params
+    ? `${BASE_URL}/api/users${objToParams(params)}`
+    : `${BASE_URL}/api/users`;
+
+  return await httpRequest(url);
+
+  // return await httpRequest(`${BASE_URL}/api/users`);
+};
+
+export const createUser = async (payload) => {
+  return await httpRequest(`${BASE_URL}/api/users`, "post", payload);
+};
+
+export const activateUser = async (id) => {
+  return await httpRequest(`${BASE_URL}/api/users/activateUser/${id}`, "put");
+};
+
+export const deactivateUser = async (id) => {
+  return await httpRequest(`${BASE_URL}/api/users/deactivateUser/${id}`, "put");
+};
+
+export const blockUser = async (id) => {
+  return await httpRequest(`${BASE_URL}/api/users/blockUser/${id}`, "put");
+};
+
+export const unblockUser = async (id) => {
+  return await httpRequest(`${BASE_URL}/api/users/unblockUser/${id}`, "put");
+};
+
+export const updateUserPassword = async (payload) => {
+  return await httpRequest(
+    `${BASE_URL}/api/users/updateUserPassword`,
+    "put",
+    payload
+  );
+};
+
+
+import React, { useEffect, useState } from "react";
+import GoogleTranslate from "../components/GoogleTranslate";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setFormModal } from "../redux/slices/modalSlice";
+
+const TabletFrontDesk = () => {
+  const [step, setStep] = useState(1);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
+  useEffect(() => {
+    if (selectedOption === "yes") {
+      dispatch(
+        setFormModal({
+          status: true,
+          type: "leadsForm",
+          title: `Add New Lead`,
+        })
+      );
+    }
+  }, [selectedOption]);
+
+  return (
+    <>s</>
+    // <div className="main-content tablet-content">
+    //   <div className="row">
+    //     <div className="col-lg-6 col-xl-4 offset-xl-1">
+    //       {step === 2 ? (
+    //         <>
+    //           <img src="../assets/images/menu_bar/MyLS-logo.svg" alt="" />
+    //           <p class="fs-24 text-primary fw-bold my-3">
+    //             Is this your first appointment booking with us?
+    //           </p>
+    //           <div className="d-flex">
+    //             <div className="form-check me-3">
+    //               <input
+    //                 className="form-check-input"
+    //                 type="radio"
+    //                 name="appointment"
+    //                 value="yes"
+    //                 id="yes"
+    //                 onChange={handleOptionChange}
+    //                 checked={selectedOption === "yes"}
+    //               />
+    //               <label className="form-check-label" htmlFor="yes">
+    //                 Yes
+    //               </label>
+    //             </div>
+    //             <div className="form-check">
+    //               <input
+    //                 className="form-check-input"
+    //                 type="radio"
+    //                 name="appointment"
+    //                 value="no"
+    //                 id="no"
+    //                 onChange={handleOptionChange}
+    //                 checked={selectedOption === "no"}
+    //               />
+    //               <label className="form-check-label" htmlFor="no">
+    //                 No
+    //               </label>
+    //             </div>
+    //           </div>{" "}
+    //         </>
+    //       ) : (
+    //         <>
+    //           <div className="d-flex h-100 align-items-center justify-content-center">
+    //             <div>
+    //               <div className="text-center">
+    //                 <p className="fs-24 text-primary fw-500 mb-0">Front desk</p>
+    //                 <p className="fs-17 text-muted">
+    //                   Welcome to the front desk portal
+    //                 </p>
+    //                 <button
+    //                   onClick={() => setStep(2)}
+    //                   className="btn btn-primary w-100"
+    //                 >
+    //                   New Client
+    //                 </button>
+    //                 <button
+    //                   className="btn bg-success-gradient mt-3 text-fixed-white w-100"
+    //                   data-bs-toggle="modal"
+    //                   data-bs-target="#existing-client"
+    //                 >
+    //                   Existing Client
+    //                 </button>
+    //               </div>
+    //               <div className="text-center mt-3">
+    //                 <a href="#">Terms of Services </a>
+    //                 <a href="#">| Privacy Policy</a>
+    //               </div>
+    //             </div>
+    //           </div>
+    //         </>
+    //       )}
+    //     </div>
+    //     <div className="col-lg-6 col-xl-6">
+    //       <img
+    //         src="../assets/images/Banner/frontdesk.svg"
+    //         class="w-100"
+    //         alt=""
+    //       />
+    //     </div>
+    //   </div>
+    // </div>
+  );
+};
+
+export default TabletFrontDesk;
+
+import React from "react";
+import GoogleTranslate from "../GoogleTranslate";
+import { useNavigate } from "react-router-dom";
+
+const TabletHeader = () => {
+  const navigate = useNavigate();
+
+  return (
+    <div className="tablet-header">
+      <div className="d-sm-flex gap-4 justify-content-end">
+        <GoogleTranslate />
+
+        <div className="mt-3 me-3" onClick={() => navigate("/logout")} href="">
+          Log Out{" "}
+          <span>
+            <iconify-icon
+              icon="mdi:logout"
+              className="align-middle m text-danger"
+            ></iconify-icon>
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default TabletHeader;
+
+
+import { useMemo, useEffect, useState } from "react";
+import ProjectTable from "./ProjectTable";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import {
+  fetchUserList,
+  fetchUsers,
+  updateUserPagination,
+} from "../redux/slices/userSlice";
+import {
+  Badge,
+  Button,
+  Circle,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Switch,
+} from "@chakra-ui/react";
+import { FaTrash } from "react-icons/fa";
+import { FiEdit } from "react-icons/fi";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import {
+  setConfirmModal,
+  setFormModal,
+  setLoader,
+} from "../redux/slices/modalSlice";
+import { Link } from "react-router-dom";
+import CustomTable from "../components/CustomTable";
+import {
+  activateUser,
+  blockUser,
+  deactivateUser,
+  unblockUser,
+} from "../services/userService";
+import { errorToast, successToast } from "./NotificationToast";
+
+const Users = () => {
+  const [step, setStep] = useState(1);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { params, totalPages, page, userList } = useSelector(
+    (state) => state.users
+  );
+
+  const loading = useSelector((state) => state.users?.loading);
+  // const users = useSelector((state) => state.userList?.users?.data);
+  // const datal = users?.responses ? users?.responses : [];
+  const data = useMemo(() => (userList.length > 0 ? userList : []), [loading]);
+  console.log(userList);
+
+  useEffect(() => {
+    dispatch(fetchUserList());
+  }, [params]);
+
+  const handlePagination = (page) => {
+    dispatch(updateUserPagination(page - 1));
+  };
+
+  const allUserProps = {
+    data: data,
+    title: {
+      name: "Name",
+      email: "Email",
+      attorneyCase: "Attorney Case",
+      paralegalCase: "Paralegal Case",
+      task: "Task",
+      active: "Active",
+      block: "Block",
+      action: "Action",
+    },
+    loading: loading,
+    pageNumber: page,
+    handlePagination: handlePagination,
+    totalPages: totalPages,
+    transformRow: (item) => ({
+      name: `${item?.firstName} ${item?.lastName}`,
+      email: item?.email ? item?.email : "-- --",
+      attorneyCase: "-- --",
+      paralegalCase: "-- --",
+      task: "-- --",
+      active: (
+        <Switch
+          colorScheme="teal"
+          onChange={() => {
+            handleActive(item);
+          }}
+          isChecked={item?.isActive}
+        />
+      ),
+      block: (
+        <Switch
+          onChange={() => {
+            handleBlock(item);
+          }}
+          isChecked={item?.isBlocked}
+          colorScheme="red"
+        />
+      ),
+
+      action: (
+        <Menu>
+          <MenuButton
+            as={Button}
+            rounded={"full"}
+            size={"sm"}
+            h={"2.5rem"}
+            w={"2.5rem"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <BsThreeDotsVertical style={{ margin: "0 auto" }} />
+          </MenuButton>
+          <MenuList minW={"8rem"}>
+            <MenuItem
+              fontSize={14}
+              onClick={() =>
+                dispatch(
+                  setFormModal({
+                    status: true,
+                    type: "userForm",
+                    title: "Edit User",
+                    data: { user: item },
+                  })
+                )
+              }
+            >
+              Edit
+            </MenuItem>
+            <MenuItem
+              onClick={() =>
+                dispatch(
+                  setFormModal({
+                    status: true,
+                    type: "changePassword",
+                    title: "Change Password",
+                    data: { id: item?.id },
+                  })
+                )
+              }
+            >
+              Change Password
+            </MenuItem>
+          </MenuList>
+        </Menu>
+      ),
+    }),
+  };
+
+  const handleActive = async (item) => {
+    dispatch(setLoader({ status: true }));
+
+    let res;
+    if (item?.isActive) {
+      res = await deactivateUser(item?.id);
+    } else {
+      res = await activateUser(item?.id);
+    }
+
+    if (res.code === 204) {
+      dispatch(setLoader({ status: false }));
+      successToast(res?.message);
+      dispatch(fetchUsers());
+    } else {
+      dispatch(setLoader({ status: false }));
+      errorToast(res?.message);
+    }
+  };
+
+  const handleBlock = async (item) => {
+    dispatch(setLoader({ status: true }));
+
+    let res;
+    if (item?.isBlocked) {
+      res = await unblockUser(item?.id);
+    } else {
+      res = await blockUser(item?.id);
+    }
+
+    if (res.code === 204) {
+      dispatch(setLoader({ status: false }));
+      successToast(res?.message);
+      dispatch(fetchUsers());
+    } else {
+      dispatch(setLoader({ status: false }));
+      errorToast(res?.message);
+    }
+  };
+
+  // const columns = useMemo(
+  //   () => [
+  //     {
+  //       Header: "Name",
+  //       accessor: (row) => `${row?.firstName} ${row?.lastName}`,
+  //       Cell: ({ value }) => <>{value}</>,
+  //     },
+  //     {
+  //       Header: "Email",
+  //       accessor: "email",
+  //     },
+  //     {
+  //       Header: "Attorney Case",
+  //       accessor: "type",
+  //     },
+  //     {
+  //       Header: "	Paralegal Case",
+  //       accessor: "attorney",
+  //     },
+  //     {
+  //       Header: "Paralegal",
+  //       accessor: "paralegal",
+  //     },
+  //     {
+  //       Header: "Task",
+  //       accessor: "task",
+  //     },
+  //     {
+  //       Header: "Active",
+  //       accessor: "active",
+  //     },
+  //   ],
+  //   []
+  // );
+  return (
+    <>
+      <div className="d-sm-flex justify-content-between align-items-center mb-2 p-3">
+        <p className="fs-5 fw-bold">User Management</p>
+        <div>
+          <Link onClick={() => navigate(-1)}>
+            <button
+              type="button"
+              className="btn btn-green w-auto py-2 text-capitalize mt-2 mt-sm-0 me-2"
+            >
+              Back
+            </button>
+          </Link>
+          <button
+            className="btn btn-primary-light py-2 text-capitalize mt-2 mt-sm-0 shadow"
+            style={{ zIndex: 10 }}
+            onClick={() =>
+              dispatch(
+                setFormModal({
+                  status: true,
+                  type: "userForm",
+                  title: "Add User",
+                })
+              )
+            }
+          >
+            Create User
+          </button>
+        </div>
+      </div>
+      <div className="d-flex justify-content-between p-4 pb-0 under-line-tab">
+        <ul className="nav nav-pills justify-content-start nav-style-3 no-box-shadow">
+          <li className="nav-item" onClick={() => setStep(1)}>
+            <span
+              className={`cursor-pointer text-primary nav-link ${
+                step === 1 ? "active" : null
+              }`}
+            >
+              <b>All Users</b>
+            </span>
+          </li>
+          <li className="nav-item" onClick={() => setStep(2)}>
+            <span
+              className={`cursor-pointer text-success nav-link ${
+                step === 2 ? "active" : null
+              }`}
+            >
+              <b>Active</b>
+            </span>
+          </li>
+          <li className="nav-item" onClick={() => setStep(3)}>
+            <span
+              className={`cursor-pointer text-danger nav-link ${
+                step === 3 ? "active" : null
+              }`}
+            >
+              <b>Inactive</b>
+            </span>
+          </li>
+        </ul>
+      </div>{" "}
+      <div className="mt-2">
+        <CustomTable {...allUserProps} />
+      </div>
+    </>
+  );
+};
+
+export default Users;
+
+
